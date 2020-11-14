@@ -1,0 +1,19 @@
+<div class="top-toolbar">
+  <mat-toolbar>
+    <a class="logo">Momentum</a>
+    <app-search-box *ngIf="localStorageService.isAuthorized()"></app-search-box>
+    <div class="spacer"></div>
+    <div *ngIf="localStorageService.isAdmin()">
+      <button routerLink="/reports" routerLinkActive="active-link" mat-button
+              matBadge="{{countUnread}}" matBadgePosition="before" matBadgeColor="primary">Reports
+      </button>
+    </div>
+    <a *ngIf="localStorageService.isAuthorized()" routerLink="/feed" routerLinkActive="active-link" mat-button
+       [routerLinkActiveOptions]="{exact: true}">Feed</a>
+    <a *ngIf="user && localStorageService.isUser()" routerLink="/user/{{user.nickname}}" routerLinkActive="active-link"
+       mat-button>Account</a>
+    <a *ngIf="localStorageService.isAdmin()" routerLink="/users" routerLinkActive="active-link" mat-button>Users</a>
+    <a *ngIf="localStorageService.isAuthorized()" routerLink="/login" (click)="logout()" mat-button>Log Out</a>
+  </mat-toolbar>
+</div>
+

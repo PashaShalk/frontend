@@ -1,0 +1,11 @@
+<h1 mat-dialog-title class="text">Report</h1>
+
+<h4 class="text">Why are you reporting this post?</h4>
+<mat-button-toggle-group vertical>
+  <mat-button-toggle #spam value="It's spam" (click)="onClick(spam.value)">
+    {{spam.value}}
+  </mat-button-toggle>
+  <mat-button-toggle #inappropriate value="It's inappropriate" (click)="onClick(inappropriate.value)">
+    {{inappropriate.value}}
+  </mat-button-toggle>
+</mat-button-toggle-group>

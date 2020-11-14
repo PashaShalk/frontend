@@ -1,0 +1,9 @@
+.mat-button-toggle {
+  width: 300px;
+  display: flex;
+  justify-content: center
+}
+
+.text {
+  text-align: center;
+}

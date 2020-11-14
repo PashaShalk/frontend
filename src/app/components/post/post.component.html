@@ -1,0 +1,57 @@
+<mat-card class="example-card" *ngIf="post">
+  <mat-card-header>
+    <img mat-card-avatar [src]="avatar" routerLink="/user/{{post.author.nickname}}">
+    <mat-card-title routerLink="/user/{{post.author.nickname}}">{{post.author.nickname}}</mat-card-title>
+    <mat-card-subtitle>{{post.author.firstName}} {{post.author.lastName}}</mat-card-subtitle>
+    <div class="spacer"></div>
+    <app-post-menu [post]="post"></app-post-menu>
+  </mat-card-header>
+  <app-image-carousel [photoURIs]="post?.photoURIs" mat-card-image></app-image-carousel>
+  <mat-card-actions>
+    <button mat-icon-button class="shadow-none"
+            (click)="changeLikeStatus()"
+            [color]="reactionData?.likeStatus?'warn':'basic'"
+            [disabled]="authorizedUser.role === 'ADMIN'">
+      <mat-icon>thumb_up_alt</mat-icon>
+    </button>
+    <span>{{reactionData?.likes}}</span>
+    <button mat-icon-button class="shadow-none"
+            (click)="changeDislikeStatus()"
+            [color]="reactionData?.dislikeStatus?'warn':'basic'"
+            [disabled]="authorizedUser.role === 'ADMIN'">
+      <mat-icon>thumb_down_alt</mat-icon>
+    </button>
+    <span>{{reactionData?.dislikes}}</span>
+  </mat-card-actions>
+  <mat-card-content>
+    <p *ngIf="post.description">
+      <strong routerLink="/user/{{post.author.nickname}}">{{post.author.nickname}}: </strong> <span
+      [innerHTML]="post.description"></span>
+    </p>
+    <div class="comments" *ngIf="comments">
+      <p *ngFor="let comment of comments">
+        <strong routerLink="/user/{{comment?.author?.nickname}}">
+         {{comment?.author?.nickname}}:</strong> {{comment?.text}}
+      </p>
+    </div>
+
+    <h4>{{post.date | date: 'dd.MM.yyyy'}}</h4>
+    <mat-divider></mat-divider>
+    <form [formGroup]="commentForm">
+      <input #input class="comment" type="text" formControlName="comment" placeholder="Add a comment" maxlength="50"
+             (input)="commentTouched = !commentTouched">
+      <button class="post" mat-flat-button color="primary"
+              [disabled]="!input.value || authorizedUser.role === 'ADMIN' || input.value === ''"
+              (click)="sendComment(input)">Post
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+<ngx-spinner
+  bdColor = "rgba(0, 0, 0, 0.1)"
+  size = "large"
+  color = "#fff"
+  type = "ball-clip-rotate-multiple"
+  [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>

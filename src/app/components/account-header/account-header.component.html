@@ -1,0 +1,29 @@
+<div *ngIf="user" class="account-header">
+  <img [src]="avatar" class="avatar">
+  <h1>{{user.nickname}}</h1>
+  <h3>{{user.firstName}} {{user.lastName}}</h3>
+  <p class="description">{{user.profileDescription}}</p>
+  <h4>Followers {{subscriptionsData?.subscriptions}} Following {{subscriptionsData?.subscribers}}</h4>
+  <div *ngIf="user && authorizedUser && subscriptionsData">
+    <button class="account-button" *ngIf="user.id !== authorizedUser.id && !subscriptionsData.subscribe"
+            mat-raised-button (click)="subscribe()">Subscribe
+    </button>
+    <button class="account-button" *ngIf="user.id !== authorizedUser.id && subscriptionsData.subscribe"
+            mat-raised-button (click)="unsubscribe()">Unsubscribe
+    </button>
+    <button class="account-button" *ngIf="user.id === authorizedUser.id" mat-raised-button
+            (click)="openAddPostDialog()">Add Post
+    </button>
+    <button class="account-button" *ngIf="user.id === authorizedUser.id" mat-raised-button
+            (click)="openEditInfoDialog()">Edit info
+    </button>
+  </div>
+</div>
+<ngx-spinner
+  bdColor = "rgba(0, 0, 0, 0.1)"
+  size = "large"
+  color = "#fff"
+  type = "ball-clip-rotate-multiple"
+  [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>

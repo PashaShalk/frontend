@@ -1,0 +1,63 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 35px 0px;
+}
+
+.mat-card {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 15px;
+  width: 370px;
+}
+
+.about {
+  resize: none;
+}
+
+.mat-form-field {
+  height: 65px;
+  width: 100%;
+  min-width: 100px;
+}
+
+.mat-card-title,
+.mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+.left-field {
+  width: 49%;
+  float: left;
+  margin-right: 3px;
+  margin-bottom: 12px;
+}
+
+.right-field {
+  width: 49%;
+  float: right;
+  margin-left: 3px;
+  margin-bottom: 12px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  color: #b0272d;
+  display: flex;
+  justify-content: center;
+}
+
+.question {
+  margin-right: 5px;
+}
+

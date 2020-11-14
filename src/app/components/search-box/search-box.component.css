@@ -1,0 +1,46 @@
+.search-box:hover > .search-txt {
+  width: 150px;
+  padding: 0 6px;
+  background: #ebebeb;
+}
+
+.search-box:hover {
+  background: #ebebeb;
+}
+
+.search-box {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 20px;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.search-btn {
+  color: black;
+  float: right;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.search-txt {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: black;
+  font-size: 14px;
+  transition: 0.4s;
+  line-height: 20px;
+  width: 0px;
+  font-weight: normal;
+}

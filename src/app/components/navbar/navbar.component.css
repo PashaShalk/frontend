@@ -1,0 +1,17 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.logo {
+  text-align: right;
+}
+
+.top-toolbar{
+  box-shadow: 0 0 3px;
+}
+
+.active-link {
+  background-color: #e1e1e1;
+}
+
+

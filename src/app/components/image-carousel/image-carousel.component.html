@@ -1,0 +1,18 @@
+<div mat-card-image>
+  <mat-carousel
+    color=""
+    proportion="75"
+    [autoplay]="false"
+    [loop]="false"
+    [hideArrows]="true"
+    [hideIndicators]="photoURIs?.length < 2"
+    [useKeyboard]="true"
+    [useMouseWheel]="true"
+    orientation="ltr">
+    <mat-carousel-slide
+      *ngFor="let photoURI of photoURIs"
+      [image]="photoURI">
+    </mat-carousel-slide>
+  </mat-carousel>
+</div>
+

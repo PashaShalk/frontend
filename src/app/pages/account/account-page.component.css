@@ -1,0 +1,49 @@
+.userpage {
+  width: 50%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-header {
+  display: inline-flex;
+}
+
+.user-subscriptions {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nickname {
+  color: #3f51b5;
+}
+
+.subinfo {
+  margin: 5px;
+}
+
+.sub-btn {
+  margin-left: 10px;
+}
+
+.user-image {
+  width: 50%;
+  height: 50%;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5%;
+}
+
+.user-info {
+  width: 50%;
+  margin-left: 10px;
+}

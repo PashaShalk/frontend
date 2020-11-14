@@ -1,0 +1,49 @@
+<mat-card>
+  <br>
+  <mat-card-title>Login</mat-card-title>
+  <br>
+  <mat-card-content>
+    <form [formGroup]="loginForm">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput maxlength="254" placeholder="pat@example.com" formControlName="email"
+                 [errorStateMatcher]="loginMatcher">
+          <mat-error>
+            {{loginForm.controls['email'].value ? 'Not a valid email'
+            : 'You must enter a email'}}
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <label>
+            <input matInput maxlength="30" [type]="hide ? 'password' : 'text'" formControlName="password"
+                   autocomplete="off"
+                   [errorStateMatcher]="loginMatcher">
+          </label>
+          <mat-error>
+            {{loginForm.controls['password'].value ? 'Password must be at least 5 characters'
+            : 'You must enter a password'}}
+          </mat-error>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <div class="button">
+        <button mat-stroked-button [disabled]="!loginForm.valid" (click)="_login()">Login</button>
+      </div>
+      <br>
+      <div class="link">
+        <div class="question">Don't have an account?</div>
+        <a class="link" routerLink="/registration">Sign up</a>
+      </div>
+      <div class="error" *ngIf="loginError">Incorrect credentials.</div>
+      <div class="error" *ngIf="bannedUser">You're banned.</div>
+    </form>
+  </mat-card-content>
+</mat-card>
+

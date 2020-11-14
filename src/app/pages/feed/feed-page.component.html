@@ -1,0 +1,19 @@
+<div *ngIf="posts"
+  class="image-grid-list"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+>
+  <div *ngFor="let post of posts">
+    <app-post *ngIf="posts" [post]="post"></app-post>
+  </div>
+</div>
+<ngx-spinner
+  bdColor = "rgba(0, 0, 0, 0.1)"
+  size = "large"
+  color = "#fff"
+  type = "ball-clip-rotate-multiple"
+  [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>

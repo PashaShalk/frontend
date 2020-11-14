@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.account-header {
+  text-align: center;
+}
+
+.description {
+  text-align: left;
+}
+
+.account-button {
+  margin: 5px;
+}
+
+.avatar {
+  object-fit: cover;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}

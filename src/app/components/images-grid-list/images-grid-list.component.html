@@ -1,0 +1,22 @@
+<div
+  class="image-grid-list"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+>
+  <mat-grid-list cols="3" rowHeight="1:1" gutterSize="20px">
+    <mat-grid-tile *ngFor="let post of posts">
+      <img class="grid-image" src="{{post?.photoURIs[0]}}" (click)="openDialog(post)">
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<ngx-spinner
+  bdColor = "rgba(0, 0, 0, 0.1)"
+  size = "large"
+  color = "#fff"
+  type = "ball-clip-rotate-multiple"
+  [fullScreen] = "true">
+  <p style="color: white" > Loading... </p>
+</ngx-spinner>

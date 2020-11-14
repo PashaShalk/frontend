@@ -1,0 +1,10 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+        [disabled]="authorizedUser.role === 'ADMIN' || authorizedUser?.id === post?.author?.id">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="openReportDialog()">
+    <mat-icon>report</mat-icon>
+    <span>Report</span>
+  </button>
+</mat-menu>
